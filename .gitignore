@@ -15,4 +15,5 @@
 /tmp
 .idea
 config/database.yml
+config/oauth.yml
 .rvmrc
