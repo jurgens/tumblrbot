@@ -1,8 +1,7 @@
 namespace :tumblr do
   desc "process jobs"
   task :run => :environment do
-
     result = Worker.new.run
-    puts result.nil? ? 'Skip' : 'Done'
+    puts 'OK' unless result.nil?
   end
 end
