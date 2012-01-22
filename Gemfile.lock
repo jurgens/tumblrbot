@@ -72,6 +72,7 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.6.0)
       guard (>= 0.10.0)
+    haml (3.1.4)
     hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.0)
@@ -189,6 +190,7 @@ DEPENDENCIES
   fastercsv
   guard
   guard-rspec
+  haml
   jquery-rails
   mongoid
   mongoid-rspec
@@ -197,6 +199,7 @@ DEPENDENCIES
   rack!
   rails (= 3.2)
   rspec-rails
+  sass
   sass-rails
   timecop
   turn (~> 0.8.3)

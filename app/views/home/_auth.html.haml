@@ -1,0 +1,13 @@
+%section
+  .row
+    .span4
+      %h2 Authenticate
+      %p In order to use this application you should authenticate with Tumblr first
+
+    .span12
+      - if authentication.blank?
+        = button_to 'Tumblr', '#', class: 'btn primary'
+      - else
+        %p
+          You are authenticated as
+          %strong= authentication.uid

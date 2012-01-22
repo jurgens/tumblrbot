@@ -1,0 +1,18 @@
+!!!
+%html
+%head
+  %title Tumblrbot
+  = stylesheet_link_tag    "application"
+  = javascript_include_tag "application"
+  = csrf_meta_tags
+
+%body
+  .topbar
+    .topbar-inner
+      .container
+        %a.brand{:href=>"#"} Tumblrbot
+
+  %header
+
+  .container
+    = yield

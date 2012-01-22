@@ -10,6 +10,8 @@ gem 'twitter-bootstrap-rails'
 gem 'rack', git: 'https://github.com/rack/rack.git'
 gem 'omniauth'
 gem 'omniauth-tumblr'
+gem 'haml'
+gem 'sass'
 
 group :assets do
   gem 'sass-rails'

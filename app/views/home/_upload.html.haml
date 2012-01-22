@@ -1,0 +1,10 @@
+
+%section
+  .row
+    .span4
+      %h2 Add jobs
+      %p Upload CSV file
+
+    .span12
+      = form_tag do
+        = file_field_tag :csv

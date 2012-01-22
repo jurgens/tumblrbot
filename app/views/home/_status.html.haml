@@ -1,0 +1,21 @@
+
+%section
+  .row
+    .span4
+      %h2 Status
+      %p Check status of job queue, successful and failed jobs
+
+    .span12
+      %p
+        %strong Jobs in queue:
+        = counters[:pending]
+      %p
+        %strong Successfully processed:
+        = counters[:success]
+      %p
+        %strong Errors:
+        = counters[:error]
+      %p
+        %strong Last time:
+        = time_ago_in_words Job.last_time
+        ago

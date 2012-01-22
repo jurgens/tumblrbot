@@ -2,7 +2,7 @@ class Tumblr
 
   def self.follow(user, url)
     response = self.access_token(user).post("http://api.tumblr.com/v2/user/follow", {:url => url})
-    raise res.message unless res.code == 200
+    raise response.message unless response.code == 200
     true
   end
 

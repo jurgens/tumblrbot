@@ -15,6 +15,8 @@ class Job
   validates :status, inclusion: {in: STATUSES}
 
   scope :pending, where(status: PENDING)
+  scope :success, where(status: SUCCESS)
+  scope :error, where(status: ERROR)
 
   def success
     self.status = SUCCESS
@@ -29,5 +31,13 @@ class Job
 
   def self.last_time
     Job.all(sort: [[:updated_at, :desc]]).first.updated_at
+  end
+
+  def self.counters
+    {
+      pending:  Job.pending.count,
+      error:    Job.error.count,
+      success:  Job.success.count
+    }
   end
 end
