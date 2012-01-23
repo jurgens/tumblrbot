@@ -11,7 +11,7 @@ class Job
   field :status, type: String, default: PENDING
   field :status_message, type: String
 
-  validates :url, presence: true
+  validates :url, presence: true, format: {with: URI::regexp(%w(http https)) }
   validates :status, inclusion: {in: STATUSES}
 
   scope :pending, where(status: PENDING)

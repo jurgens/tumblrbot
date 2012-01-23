@@ -3,4 +3,11 @@ class HomeController < ApplicationController
     @authentication = Authentication.first
     @counters = Job.counters
   end
+
+  def upload
+    @importer = Importer.new
+    @report = @importer.run(params[:file].path)
+
+    redirect_to({:action => 'index'}, notice: "Added #{@report[:successes]} new jobs, #{@report[:failures]} failed to add")
+  end
 end

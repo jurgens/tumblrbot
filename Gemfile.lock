@@ -65,7 +65,6 @@ GEM
     factory_girl_rails (1.6.0)
       factory_girl (~> 2.5.0)
       railties (>= 3.0.0)
-    fastercsv (1.5.4)
     ffi (1.0.11)
     guard (1.0.0)
       ffi (>= 0.5.0)
@@ -155,6 +154,7 @@ GEM
       railties (~> 3.2.0.beta)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    shoulda (2.11.3)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -187,7 +187,6 @@ DEPENDENCIES
   coffee-rails
   database_cleaner
   factory_girl_rails
-  fastercsv
   guard
   guard-rspec
   haml
@@ -201,6 +200,7 @@ DEPENDENCIES
   rspec-rails
   sass
   sass-rails
+  shoulda
   timecop
   turn (~> 0.8.3)
   twitter-bootstrap-rails

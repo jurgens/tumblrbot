@@ -5,7 +5,6 @@ gem 'rack', git: 'https://github.com/rack/rack.git'
 gem 'jquery-rails'
 gem 'bson_ext'
 gem 'mongoid'
-gem 'fastercsv'
 gem 'twitter-bootstrap-rails'
 gem 'rack', git: 'https://github.com/rack/rack.git'
 gem 'omniauth'
@@ -26,6 +25,7 @@ group :test do
   gem 'mongoid-rspec'
   gem 'factory_girl_rails'
   gem 'timecop'
+  gem 'shoulda'
 end
 
 group :development, :test do

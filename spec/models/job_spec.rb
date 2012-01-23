@@ -9,8 +9,14 @@ describe Job do
   context "url is a required field" do
     before { @job = Job.new }
     specify { @job.should_not be_valid }
-    specify { @job.should have(1).error_on(:url) }
+    specify { @job.should have(2).errors_on(:url) }
   end
+
+  context "url should be a valid URL" do
+      before { @job = Job.new url: 'some.string'}
+      specify { @job.should_not be_valid }
+      specify { @job.should have(1).errors_on(:url) }
+    end
 
   context "new job gets PENDING status" do
     before { @job = Job.new url: 'http://some.url.com' }
