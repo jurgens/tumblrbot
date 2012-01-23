@@ -6,16 +6,34 @@
       %p Check status of job queue, successful and failed jobs
 
     .span12
-      %p
-        %strong Jobs in queue:
-        = counters[:pending]
-      %p
-        %strong Successfully processed:
-        = counters[:success]
-      %p
-        %strong Errors:
-        = counters[:error]
-      %p
-        %strong Last time:
-        = time_ago_in_words Job.last_time
-        ago
+
+      = form_tag '/settings/status', remote: true, id: 'status' do
+
+        .clearfix
+          %label Jobs in queue:
+          .input= counters[:pending]
+        .clearfix
+          %label Successfully processed:
+          .input= counters[:success]
+        .clearfix
+          %label Errors:
+          .input= counters[:error]
+        .clearfix
+          %label Last time:
+          .input
+            = time_ago_in_words Job.last_time
+            ago
+
+        .clearfix
+          %label Worker status
+          .input
+            %ul.inputs-list
+              %li
+                %label
+                  = radio_button_tag 'status', 'on', Settings.status == 'on'
+                  %span On
+              %li
+                %label
+                  = radio_button_tag 'status', 'off', Settings.status == 'off'
+                  %span Off
+

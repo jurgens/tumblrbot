@@ -7,16 +7,14 @@ class AuthenticationsController < ApplicationController
     auth = request.env["omniauth.auth"]
     @authentication = Authentication.create_with_omniauth(auth)
 
-    puts " -- #{@authentication.inspect}"
-
     flash[:notice] = "Authentication successful."
-    redirect_to authentications_url
+    redirect_to root_url
   end
 
   def destroy
     @authentication = Authentication.find(params[:id])
     @authentication.destroy
     flash[:notice] = "Successfully destroyed authentication."
-    redirect_to authentications_url
+    redirect_to root_url
   end
 end

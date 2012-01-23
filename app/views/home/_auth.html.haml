@@ -6,8 +6,9 @@
 
     .span12
       - if authentication.blank?
-        = button_to 'Tumblr', '#', class: 'btn primary'
+        = button_to 'Tumblr', '/auth/tumblr', class: 'btn primary'
       - else
         %p
           You are authenticated as
           %strong= authentication.uid
+          == [#{link_to 'delete', authentication, method: :delete}]
