@@ -5,4 +5,8 @@ describe Settings do
     before { Settings.status = 'on' }
     specify { Settings.status.should == 'on' }
   end
+
+  describe "getting detault status value" do
+    specify { Settings.status.should be_nil }
+  end
 end

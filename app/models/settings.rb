@@ -8,7 +8,7 @@ class Settings
 
   def self.status
     row = Settings.first(conditions: {key: 'status'} )
-    row.value
+    row.value unless row.blank?
   end
 
   def self.status=(value)
