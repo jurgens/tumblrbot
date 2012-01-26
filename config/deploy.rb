@@ -19,9 +19,9 @@ set :rvm_ruby_string, '1.9.3'
 set :rvm_type, :user
 
 # Create uploads directory and link, remove rep clone
-#task :build_symlinks, :roles => :app do
-#  run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-#end
+task :build_symlinks, :roles => :app do
+ run "cp #{shared_path}/config/oauth.yml #{release_path}/config/oauth.yml"
+end
 
 namespace :deploy do
   task :restart do
@@ -39,4 +39,4 @@ task :pipeline_precompile do
   run "cd #{release_path}; RAILS_ENV=#{rails_env} bundle exec rake assets:precompile"
 end
 
-after "deploy:update_code", "deploy:migrate", "deploy:cleanup", "pipeline_precompile"
+after "deploy:update_code", "build_symlinks", "deploy:migrate", "deploy:cleanup", "pipeline_precompile"

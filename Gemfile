@@ -10,6 +10,7 @@ gem 'omniauth'
 gem 'omniauth-tumblr'
 gem 'haml'
 gem 'sass'
+gem 'unicorn'
 
 group :assets do
   gem 'sass-rails'
