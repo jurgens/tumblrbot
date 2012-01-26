@@ -30,7 +30,8 @@ class Job
   end
 
   def self.last_time
-    Job.all(sort: [[:updated_at, :desc]]).first.updated_at
+    last = Job.all(sort: [[:updated_at, :desc]]).first
+    last.updated_at unless last.blank?
   end
 
   def self.counters

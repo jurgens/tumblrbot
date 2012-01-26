@@ -35,6 +35,7 @@ end
 group :development do
   gem 'guard'
   gem 'guard-rspec'
+  gem 'libnotify'
   gem 'capistrano'
   gem 'capistrano-ext'
 end
