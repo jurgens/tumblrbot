@@ -31,26 +31,48 @@ describe Worker do
   end
 
   describe "#run" do
-    #before { Tumblr.stub(:follow).and_return(true) }
     before { @successful_job = Factory :successful_job }
     before { @pending = Factory :job }
+    before { Settings.status = 'on' }
 
     context "should not process pending job" do
       before { Tumblr.should_not_receive(:follow) }
 
-      specify "until time has come" do
+      specify "right after previous job" do
         worker.run
       end
     end
 
-    context "should process pending job" do
-      before { Tumblr.should_receive(:follow).and_return(true) }
-
-      specify "when time is right" do
-        Timecop.freeze(Time.now + 6.minutes) do
+    context "should process a job" do
+      before do
+        Tumblr.should_receive(:follow).and_return(true)
+      end
+      specify do
+        Timecop.freeze(Time.now + 7.minutes) do
           worker.run
         end
       end
+    end
+  end
+
+  #
+  describe "is_good_time" do
+    before { Factory :successful_job }
+    specify "when time is right" do
+      Timecop.freeze(Time.now + 7.minutes) do
+        worker.is_good_time.should == true
+      end
+    end
+  end
+
+  describe "#has_jobs" do
+    context "no jobs" do
+      specify { worker.has_jobs.should be_false }
+    end
+
+    context "there are jobs" do
+      before { Factory :job }
+      specify { worker.has_jobs.should be_true }
     end
   end
 end

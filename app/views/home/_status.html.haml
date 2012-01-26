@@ -5,39 +5,39 @@
       %h2 Status
       %p Check status of job queue, successful and failed jobs
 
-    .span12
+    .span4
+      %h3
+        %span#pending
+          = counters[:pending]
+        jobs in queue
+      = link_to 'Clear queue', '#', class: 'clear-queue-link btn danger'
+
+    .span4
+      %h3== Followed #{counters[:success]} (#{counters[:error]} errors)
+
+    .span4
+      %h3 Worker status
 
       = form_tag '/settings/status', remote: true, id: 'status' do
 
-        .clearfix
-          %label Jobs in queue:
-          .input= counters[:pending]
-        .clearfix
-          %label Successfully processed:
-          .input= counters[:success]
-        .clearfix
-          %label Errors:
-          .input= counters[:error]
-        .clearfix
-          %label Last time:
-          .input
-            - last_time = Job.last_time
-            - unless last_time.blank?
-              = time_ago_in_words Job.last_time
-            - else 
-              never
-            ago
+        %ul.inputs-list
+          %li
+            %label
+              = radio_button_tag 'status', 'on', Settings.status?
+              %span On
+          %li
+            %label
+              = radio_button_tag 'status', 'off', !Settings.status?
+              %span Off
 
-        .clearfix
-          %label Worker status
-          .input
-            %ul.inputs-list
-              %li
-                %label
-                  = radio_button_tag 'status', 'on', Settings.status == 'on'
-                  %span On
-              %li
-                %label
-                  = radio_button_tag 'status', 'off', Settings.status == 'off'
-                  %span Off
+        Last ran:
+
+        - last_time = Job.last_time
+        - unless last_time.blank?
+          = time_ago_in_words Job.last_time
+          ago
+        - else
+          never
+
+
 

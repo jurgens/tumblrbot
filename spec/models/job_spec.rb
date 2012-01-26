@@ -45,17 +45,15 @@ describe Job do
     specify { job.status_message.should == 'error message' }
   end
 
-
-
   describe "last_time" do
     context "with existing job" do
-      before { job }
+      before { @job = Factory :successful_job }
       before do
         Timecop.freeze(Date.today - 1.day) do
-          @older_job = Factory :job
+          @older_job = Factory :successful_job
         end
       end
-      specify { Job.last_time.should == job.updated_at }
+      specify { Job.last_time.should == @job.processed_at }
     end
 
     context "with no jobs" do
@@ -63,4 +61,11 @@ describe Job do
     end
   end
 
+  describe ".clear" do
+    before { Factory :job }
+    specify do
+      Job.clear
+      Job.all.count.should == 0
+    end
+  end
 end

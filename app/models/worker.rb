@@ -20,11 +20,11 @@ class Worker
   end
 
   def is_good_time
-    Time.now - Job.last_time < delay
+    Time.now - Job.last_time > delay
   end
 
   def delay
-    (rand(2) + 3) * 60 # 3-5 minutes
+    (rand(2) + 3).minutes # 3-5 minutes
   end
 
   def has_jobs
@@ -32,6 +32,6 @@ class Worker
   end
 
   def enabled
-    Settings.status == 'on'
+    Settings.status?
   end
 end

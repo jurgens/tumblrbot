@@ -12,5 +12,19 @@
 $(function(){
   $("form#status input[type='radio']").click(function(){
     $(this).closest('form').submit();
-  })
-})
+  });
+
+  $("form#upload input[type='file']").change(function(){
+    $(this).closest('form').submit();
+  });
+
+  $(".clear-queue-link").click(function(){
+    _self = $(this);
+    _self.html('Clearing...').attr('disabled', 'disabled');
+    $.ajax({
+      url: '/jobs/clear.js',
+      type: 'POST',
+      success: function() { _self.html('Clear queue').removeAttr('disabled') }
+    })
+  });
+});

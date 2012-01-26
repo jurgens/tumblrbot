@@ -4,11 +4,13 @@ FactoryGirl.define do
     status 'pending'
 
     factory :successful_job do
-      status 'success'
+      status        'success'
+      processed_at  { Time.now }
     end
 
     factory :failed_job do
-      status 'error'
+      status        'error'
+      processed_at  { Time.now }
     end
   end
 end

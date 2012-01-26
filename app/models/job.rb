@@ -10,6 +10,7 @@ class Job
   field :url, type: String
   field :status, type: String, default: PENDING
   field :status_message, type: String
+  field :processed_at, type: Time
 
   validates :url, presence: true, format: {with: URI::regexp(%w(http https)) }
   validates :status, inclusion: {in: STATUSES}
@@ -20,18 +21,24 @@ class Job
 
   def success
     self.status = SUCCESS
+    self.processed_at = Time.now
     self.save
   end
 
   def error(message)
     self.status = ERROR
     self.status_message = message
+    self.processed_at = Time.now
     self.save
   end
 
   def self.last_time
-    last = Job.all(sort: [[:updated_at, :desc]]).first
-    last.updated_at unless last.blank?
+    last = Job.all(sort: [[:processed_at, :desc]]).first
+    last.processed_at unless last.blank?
+  end
+
+  def self.clear
+    self.destroy_all
   end
 
   def self.counters

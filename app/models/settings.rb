@@ -16,4 +16,8 @@ class Settings
     row.value = value
     row.save
   end
+
+  def self.status?
+    self.status == 'on'
+  end
 end
