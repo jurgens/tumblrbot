@@ -1,14 +1,14 @@
 GIT
   remote: https://github.com/rack/rack.git
-  revision: a2cfdbd2c9483f7747074994af538c1d8bd4b52e
+  revision: 4c58e4d3088c08ae54f8c1883b62f6e727ea45d4
   specs:
-    rack (1.4.0)
+    rack (1.4.1)
 
 GIT
   remote: https://github.com/rack/rack.git
-  revision: a2cfdbd2c9483f7747074994af538c1d8bd4b52e
+  revision: 4c58e4d3088c08ae54f8c1883b62f6e727ea45d4
   specs:
-    rack (1.4.0)
+    rack (1.4.1)
 
 GEM
   remote: http://rubygems.org/
@@ -46,6 +46,12 @@ GEM
     bson_ext (1.5.2)
       bson (= 1.5.2)
     builder (3.0.0)
+    capistrano (2.9.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coffee-rails (3.2.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0.beta)
@@ -73,17 +79,18 @@ GEM
       guard (>= 0.10.0)
     haml (3.1.4)
     hashie (1.2.0)
+    highline (1.6.11)
     hike (1.2.1)
     i18n (0.6.0)
     journey (1.0.0)
-    jquery-rails (1.0.19)
-      railties (~> 3.0)
+    jquery-rails (2.0.0)
+      railties (>= 3.2.0.beta, < 5.0)
       thor (~> 0.14)
     json (1.6.5)
-    less (2.0.8)
+    less (2.0.9)
       commonjs (~> 0.2.0)
       therubyracer (~> 0.9.9)
-    less-rails (2.1.2)
+    less-rails (2.1.3)
       actionpack (>= 3.1)
       less (~> 2.0.7)
     libv8 (3.3.10.4)
@@ -94,7 +101,7 @@ GEM
     mime-types (1.17.2)
     mongo (1.5.2)
       bson (= 1.5.2)
-    mongoid (2.4.1)
+    mongoid (2.4.2)
       activemodel (~> 3.1)
       mongo (~> 1.3)
       tzinfo (~> 0.3.22)
@@ -102,6 +109,13 @@ GEM
       mongoid (~> 2.0)
       rspec (~> 2)
     multi_json (1.0.4)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.3.0)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
     oauth (0.4.5)
     omniauth (1.0.2)
       hashie (~> 1.2)
@@ -184,6 +198,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext
+  capistrano
   coffee-rails
   database_cleaner
   factory_girl_rails

@@ -35,4 +35,5 @@ end
 group :development do
   gem 'guard'
   gem 'guard-rspec'
+  gem 'capistrano'
 end
