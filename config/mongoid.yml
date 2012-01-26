@@ -6,6 +6,9 @@ test:
   host: localhost
   database: tumblrbot_test
 
+staging: 
+  database: tumblrbot_staging
+
 # set these environment variables on your prod server
 production:
   host: <%= ENV['MONGOID_HOST'] %>
