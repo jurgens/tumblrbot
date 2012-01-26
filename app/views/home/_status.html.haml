@@ -21,7 +21,11 @@
         .clearfix
           %label Last time:
           .input
-            = time_ago_in_words Job.last_time
+            - last_time = Job.last_time
+            - unless last_time.blank?
+              = time_ago_in_words Job.last_time
+            - else 
+              never
             ago
 
         .clearfix
