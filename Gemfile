@@ -1,12 +1,11 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2'
-gem 'rack', git: 'https://github.com/rack/rack.git'
 gem 'jquery-rails'
 gem 'bson_ext'
 gem 'mongoid'
 gem 'twitter-bootstrap-rails'
-gem 'rack', git: 'https://github.com/rack/rack.git'
+gem 'rack'
 gem 'omniauth'
 gem 'omniauth-tumblr'
 gem 'haml'
@@ -36,4 +35,5 @@ group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'capistrano'
+  gem 'capistrano-ext'
 end

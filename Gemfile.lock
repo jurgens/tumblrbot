@@ -1,15 +1,3 @@
-GIT
-  remote: https://github.com/rack/rack.git
-  revision: 4c58e4d3088c08ae54f8c1883b62f6e727ea45d4
-  specs:
-    rack (1.4.1)
-
-GIT
-  remote: https://github.com/rack/rack.git
-  revision: 4c58e4d3088c08ae54f8c1883b62f6e727ea45d4
-  specs:
-    rack (1.4.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -52,6 +40,8 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     coffee-rails (3.2.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0.beta)
@@ -126,6 +116,7 @@ GEM
     omniauth-tumblr (1.0)
       omniauth-oauth (~> 1.0)
     polyglot (0.3.3)
+    rack (1.4.1)
     rack-cache (1.1)
       rack (>= 0.4)
     rack-ssl (1.3.2)
@@ -199,6 +190,7 @@ PLATFORMS
 DEPENDENCIES
   bson_ext
   capistrano
+  capistrano-ext
   coffee-rails
   database_cleaner
   factory_girl_rails
@@ -210,7 +202,7 @@ DEPENDENCIES
   mongoid-rspec
   omniauth
   omniauth-tumblr
-  rack!
+  rack
   rails (= 3.2)
   rspec-rails
   sass
