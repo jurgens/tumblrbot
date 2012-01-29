@@ -1,11 +1,11 @@
 $ ->
-  $("body > .topbar").scrollSpy()
-$ ->
-  $(".tabs").tabs()
-$ ->
-  $("a[rel=twipsy]").twipsy live: true
-$ ->
-  $("a[rel=popover]").popover offset: 10
+  $("body > .topbar").scrollspy()
+# $ ->
+#   $(".tabs").tabs()
+# $ ->
+#   $("a[rel=twipsy]").twipsy live: true
+# $ ->
+#   $("a[rel=popover]").popover offset: 10
 $ ->
   $(".topbar-wrapper").dropdown()
 $ ->
