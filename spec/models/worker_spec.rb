@@ -55,12 +55,17 @@ describe Worker do
     end
   end
 
-  #
-  describe "is_good_time" do
-    before { Factory :successful_job }
-    specify "when time is right" do
-      Timecop.freeze(Time.now + 7.minutes) do
-        worker.is_good_time.should == true
+  describe "#is_good_time", :focus => true do
+    specify "when no jobs were run yet" do
+      worker.is_good_time.should be_true
+    end
+
+    context "job was processed earlier" do
+      before { Factory :successful_job }
+      specify "when time is right" do
+        Timecop.freeze(Time.now + 7.minutes) do
+          worker.is_good_time.should == true
+        end
       end
     end
   end

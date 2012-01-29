@@ -20,7 +20,9 @@ class Worker
   end
 
   def is_good_time
-    Time.now - Job.last_time > delay
+    last_time = Job.last_time
+    return true if last_time.blank?
+    Time.now - last_time > delay
   end
 
   def delay
