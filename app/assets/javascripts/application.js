@@ -10,7 +10,11 @@
 //= require_tree .
 
 $(function(){
-  $("form#status input[type='radio']").click(function(){
+  $("form.settings input[type='radio']").click(function(){
+    $(this).closest('form').submit();
+  });
+
+  $("form.settings input[type='text']").change(function(){
     $(this).closest('form').submit();
   });
 

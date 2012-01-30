@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @authentication = Authentication.first
     @counters = Job.counters
+    @settings = Settings.instance
   end
 
   def upload

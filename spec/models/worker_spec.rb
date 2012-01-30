@@ -33,7 +33,7 @@ describe Worker do
   describe "#run" do
     before { @successful_job = Factory :successful_job }
     before { @pending = Factory :job }
-    before { Settings.status = 'on' }
+    before { Settings.instance.status = 'on' }
 
     context "should not process pending job" do
       before { Tumblr.should_not_receive(:follow) }

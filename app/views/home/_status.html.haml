@@ -18,26 +18,33 @@
     .span4
       %h3 Worker status
 
-      = form_tag '/settings/status', remote: true, id: 'status' do
+      = form_for @settings, url: '/settings', remote: true, method: :put, html: {class: 'settings form-stacked'} do |f|
+        .clearfix
+          .input
+            %ul.inputs-list
+              %li
+                %label
+                  = f.radio_button 'status', 'on'
+                  %span On
+              %li
+                %label
+                  = f.radio_button 'status', 'off'
+                  %span Off
 
-        %ul.inputs-list
-          %li
-            %label
-              = radio_button_tag 'status', 'on', Settings.status?
-              %span On
-          %li
-            %label
-              = radio_button_tag 'status', 'off', !Settings.status?
-              %span Off
+        .clearfix
+          = f.label :delay
+          .input
+            = f.text_field :delay, class: 'span2'
 
-        Last ran:
+        .clearfix
+          %label Last run
 
-        - last_time = Job.last_time
-        - unless last_time.blank?
-          = time_ago_in_words Job.last_time
-          ago
-        - else
-          never
+          - last_time = Job.last_time
+          - unless last_time.blank?
+            = time_ago_in_words Job.last_time
+            ago
+          - else
+            never
 
 
 

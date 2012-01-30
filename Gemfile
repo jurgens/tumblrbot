@@ -11,6 +11,7 @@ gem 'omniauth-tumblr'
 gem 'haml'
 gem 'sass'
 gem 'unicorn'
+gem 'ffaker'
 
 group :assets do
   gem 'sass-rails'

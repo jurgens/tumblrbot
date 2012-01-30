@@ -34,6 +34,6 @@ class Worker
   end
 
   def enabled
-    Settings.status?
+    Settings.instance.status == 'on'
   end
 end

@@ -6,8 +6,8 @@ describe Importer do
     before  { @importer = Importer.new }
     subject { @importer.run(@source) }
     it      { should be_a Hash }
-    specify { subject[:failures].should == 1 }
     specify { subject[:successes].should == 5 }
-    specify { subject[:errors].should == [["Url is invalid"]] }
+    specify { subject[:failures].should == 2 }
+    specify { subject[:errors].length.should == 2 }
   end
 end

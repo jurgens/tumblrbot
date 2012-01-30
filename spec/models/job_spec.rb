@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Job do
   it { should validate_presence_of :url }
+  it { should validate_uniqueness_of :url}
   it { should validate_inclusion_of(:status).to_allow(Job::STATUSES) }
 
   let(:job) { Factory :job }

@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :job do
-    url 'http://someurl.tumblr.com'
-    status 'pending'
+    url     { "http://#{Faker::Internet.domain_name}" }
+    status  'pending'
 
     factory :successful_job do
       status        'success'

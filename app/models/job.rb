@@ -12,7 +12,7 @@ class Job
   field :status_message, type: String
   field :processed_at, type: Time
 
-  validates :url, presence: true, format: {with: URI::regexp(%w(http https)) }
+  validates :url, presence: true, format: {with: URI::regexp(%w(http https)) }, uniqueness: {message: "is a duplicate"}
   validates :status, inclusion: {in: STATUSES}
 
   scope :pending, where(status: PENDING)
